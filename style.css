@@ -135,6 +135,19 @@ nav {
   margin-bottom: 1rem;
 }
 
+.hero-role {
+  display: inline-block;
+  min-width: 17ch;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.10s ease, transform 0.10s ease;
+}
+
+.hero-role.is-changing {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
 .hero-content .intro {
   max-width: 42ch;
   font-size: 1.45rem;
@@ -316,6 +329,10 @@ section {
 
   .hero-content h2 {
     font-size: 1.65rem;
+  }
+
+  .hero-role {
+    min-width: 0;
   }
 
   .hero-content .intro {

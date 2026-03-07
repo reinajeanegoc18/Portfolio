@@ -28,7 +28,7 @@
         <div class="hero-content">
           <p class="eyebrow">Hello, It's me</p>
           <h1>Reina Jean A. Egoc</h1>
-          <h2>I'm a Frontend Developer</h2>
+          <h2>I'm a <span id="hero-role" class="hero-role" aria-live="polite">Frontend Developer</span></h2>
           <p class="intro">
             I build dynamic web applications with React and Django.
           </p>
@@ -95,5 +95,29 @@
       <p>GitHub: reinajean0302</p>
     </div>
   </section>
+  <script>
+    (() => {
+      const roles = ["Frontend Developer", "Web Developer"];
+      const roleEl = document.getElementById("hero-role");
+
+      if (!roleEl) {
+        return;
+      }
+
+      let roleIndex = 0;
+      const changeDelayMs = 20000;
+      const transitionMs = 260;
+
+      setInterval(() => {
+        roleEl.classList.add("is-changing");
+
+        setTimeout(() => {
+          roleIndex = (roleIndex + 1) % roles.length;
+          roleEl.textContent = roles[roleIndex];
+          roleEl.classList.remove("is-changing");
+        }, transitionMs);
+      }, changeDelayMs);
+    })();
+  </script>
 </body>
 </html>
